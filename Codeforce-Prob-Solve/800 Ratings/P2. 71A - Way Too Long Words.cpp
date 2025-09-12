@@ -14,7 +14,7 @@ int main()
         }
         else
         {
-            cout<<word;
+            cout<<word<<"\n";
         }
     }
     return 0;
