@@ -1,23 +1,21 @@
 #include<bits/stdc++.h>
-using namespace std ;
+using namespace std;
 int main()
 {
     int n;
     cin>>n;
     for(int i=0; i<n; i++)
     {
-        string s;
-        cin>>s;
-        
-        if(s.length()>10)
+        string word;
+        cin>>word;
+        if(word.length()>10)
         {
-            cout<<s[0]<<s.length()-2<<s[s.length()-1]<<"\n";
+            cout<<word[0]<<word.length()-2<<word[word.length()-1]<<"\n";
         }
         else
         {
-            cout<<s<<"\n";
+            cout<<word;
         }
     }
     return 0;
 }
-
