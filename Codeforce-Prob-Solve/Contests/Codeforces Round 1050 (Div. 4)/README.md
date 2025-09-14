@@ -1,2 +1,2 @@
-### My First contest in codeforce.
-### 13_09_2025
+#### My First contest in codeforce.
+#### Date: 13-09-2025
