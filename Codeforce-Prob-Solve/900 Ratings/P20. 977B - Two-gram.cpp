@@ -1,26 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 int main()
 {
     int n;
     cin >> n;
-    string st;
-    cin>>st;
-    map<string, int> mp;
-    for(int i=0; i<n; i++)
+    string s;
+    cin >> s;
+    unordered_map<string, int> mp;
+    for (int i = 0; i < n - 1; i++)
     {
-        string t = st.substr(i,2);
+        string t = s.substr(i, 2);
         mp[t]++;
     }
     string ans = "";
     int maxCount = 0;
-    for(auto x : mp)
+    for (int i = 0; i < n - 1; i++)
     {
-        if(x.second > maxCount)
+        string t = s.substr(i, 2);
+        if (mp[t] > maxCount)
         {
-            maxCount = x.second;
-            ans = x.first;
+            maxCount = mp[t];
+            ans = t;
         }
     }
-    cout<<ans<<"\n";
+    cout << ans << "\n";
 }
