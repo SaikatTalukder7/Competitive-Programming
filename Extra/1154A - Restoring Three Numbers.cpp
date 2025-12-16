@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    vector<long long> x(4);
+    for (int i = 0; i < 4; i++)
+    {
+        cin >> x[i];
+    }
+    sort(x.begin(), x.end());
+
+    long long sum = x[3];  
+
+    long long a = sum - x[0];
+    long long b = sum - x[1];
+    long long c = sum - x[2];
+
+    cout << a << " " << b << " " << c << endl;
+
+    return 0;
+}
