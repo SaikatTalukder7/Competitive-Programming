@@ -8,36 +8,40 @@ int main()
 
     for (int i = 0; i < t; i++)
     {
-        int n, k;
-        cin >> n >> k;
+        int n;
+        cin >> n;
 
-        long long a[200010];
-        long long prefix[200010];
+        vector<int> a(n);
 
         for (int j = 0; j < n; j++)
         {
             cin >> a[j];
         }
 
-        sort(a, a + n);
+        int m = 1;
 
-        prefix[0] = 0;
-
-        for (int j = 0; j < n; j++)
+        for (int j = 1; j < n; j++)
         {
-            prefix[j + 1] = prefix[j] + a[j];
+            if (a[j] != a[j - 1])
+            {
+                a[m] = a[j];
+                m++;
+            }
         }
 
-        long long ans = 0;
+        int ans = 0;
 
-        for (int j = 0; j <= k; j++)
+        for (int j = 0; j < m; j++)
         {
-            int left = 2 * j;
-            int right = n - (k - j);
-
-            long long sum = prefix[right] - prefix[left];
-
-            ans = max(ans, sum);
+            if (j == 0 || j == m - 1)
+            {
+                ans++;
+            }
+            else if ((a[j] > a[j - 1] && a[j] > a[j + 1]) ||
+                     (a[j] < a[j - 1] && a[j] < a[j + 1]))
+            {
+                ans++;
+            }
         }
 
         cout << ans << '\n';
