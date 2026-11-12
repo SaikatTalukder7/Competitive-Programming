@@ -4,37 +4,35 @@ using namespace std;
 
 int main()
 {
-    int tc;
-    cin >> tc;
+    int t;
+    cin >> t;
 
-    while (tc--)
+    while (t--)
     {
         int n, k;
         cin >> n >> k;
 
-        vector<int> stones(n);
+        int ans = 0;
 
         for (int i = 0; i < n; i++)
         {
-            cin >> stones[i];
+            long long x;
+            cin >> x;
+
+            if (i % (k + 1) == 0)
+            {
+                ans ^= (x % 2);
+            }
         }
 
-        int winner = 0;
-
-        for (int i = 0; i < n; i++)
+        if (ans == 1)
         {
-            if (stones[i] % 2 == 1)
-            {
-                winner ^= 1;
-            }
-
-            if (i >= k && stones[i] % 2 == 1)
-            {
-                winner ^= 1;
-            }
+            cout << "Alice" << endl;
         }
-
-        cout << (winner ? "Alice" : "Bob") << '\n';
+        else
+        {
+            cout << "Bob" << endl;
+        }
     }
 
     return 0;
