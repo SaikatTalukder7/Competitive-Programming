@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -27,18 +26,27 @@ int main()
         while (low <= high)
         {
             long long mid = low + (high - low) / 2;
-
-            __int128 area = 0;
+            long long area = 0;
 
             for (int i = 0; i < n; i++)
             {
-                __int128 side = a[i] + 2 * mid;
-                area += side * side;
+                long long side = a[i] + 2 * mid;
 
-                if (area > c)
+                if (side > c / side)
                 {
+                    area = c + 1;
                     break;
                 }
+
+                long long square = side * side;
+
+                if (area > c - square)
+                {
+                    area = c + 1;
+                    break;
+                }
+
+                area += square;
             }
 
             if (area == c)
